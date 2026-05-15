@@ -1,23 +1,4 @@
-# Yazılım Tasarım Örüntüleri Ödevi
-
-**Seçilen Konu:** A - Bildirim Sistemi  
-**Gerekçe:** Bildirim sistemleri, farklı bildirim tiplerinin (E-posta, SMS, Push vb.) bir arada kullanıldığı yapılarıyla tasarım örüntülerinin (özellikle Factory ve Strategy gibi) en anlaşılır ve net şekilde uygulanabileceği sistemlerdir. Başlangıçta if-else zincirleriyle karmaşıklaşan bu sistemin, örüntülerle nasıl temiz ve yönetilebilir hale geldiğini görmek için bu konuyu seçtim.
-
----
-
-## Projenin Amacı
-Bu proje, tasarım örüntülerini soyut bir kavram olmaktan çıkarıp gerçek bir ihtiyacın çözümü olarak uygulamak amacıyla geliştirilmektedir. Başlangıçta bilerek kötü tasarlanmış (anti-pattern) bir bildirim sistemi üzerinden ilerlenmiş ve 3 farklı fazda kod evrimleştirilmiştir.
-
-## Kullanılan Tasarım Örüntüleri
-| # | Örüntü | Kategori | Açıklama |
-|---|--------|----------|----------|
-| 1 | **Factory Method** | Creational | Bildirim nesnelerinin yaratımını merkezi bir fabrikaya taşıdı. |
-| 2 | **Decorator** | Structural | Mevcut sınıfları değiştirmeden loglama ve şifreleme ekledi. |
-| 3 | **Facade** | Structural | Karmaşık alt sistemi basit bir arayüz arkasına gizledi. |
-| 4 | **Strategy** | Behavioral | Mesaj formatlama algoritmasını çalışma zamanında değiştirmeyi sağladı. |
-| 5 | **Observer** | Behavioral | Olay tabanlı bildirim dağıtımı ile gevşek bağlılık kurdu. |
-
-## Mimari Diyagram
+# UML Sınıf Diyagramı - Faz 3 (Strategy & Observer Uygulaması - Final Mimari)
 
 ```mermaid
 classDiagram
@@ -115,18 +96,5 @@ classDiagram
     NotificationDecorator <|-- EncryptedDecorator
 ```
 
-## Nasıl Çalıştırılır?
-
-```bash
-cd src
-javac *.java
-java Main
-```
-
-## Fazlar ve Branch Yapısı
-| Branch | Faz | İçerik |
-|--------|-----|--------|
-| `main` | Faz 0 + Final | Başlangıç kötü tasarım + tüm fazların merge edilmiş hali |
-| `phase-1` | Faz 1 | Creational: Factory Method uygulaması |
-| `phase-2` | Faz 2 | Structural: Decorator & Facade uygulaması |
-| `phase-3` | Faz 3 | Behavioral: Strategy & Observer uygulaması + CI |
+## Açıklama
+Strategy örüntüsü ile mesaj formatlama algoritması çalışma zamanında değiştirilebilir hale geldi. Observer örüntüsü ile olay tabanlı bildirim dağıtımı kuruldu. Yeni davranış eklemek için mevcut kodu değiştirmeye gerek kalmadı (OCP).
